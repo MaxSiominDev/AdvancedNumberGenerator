@@ -10,7 +10,7 @@ git clone https://github.com/MaxSiominDev/AdvancedNumberGenerator.git
 ```
 ## Requirements
 
-Any Android 8.0+ device
+Any Android 8.0+ device where Google service are available
 
 ## For developers
 Check out [build.gradle file](./app/build.gradle)
