@@ -13,7 +13,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 import dev.maxsiomin.advancednumbergenerator.fragments.contract.Navigator
 import dev.maxsiomin.advancednumbergenerator.util.SharedData
 import dev.maxsiomin.advancednumbergenerator.util.SharedDataImpl
@@ -32,6 +35,8 @@ abstract class BaseActivity : AppCompatActivity(), Navigator, OnSharedPreference
 
     lateinit var sharedData: SharedData
 
+    private lateinit var analytics: FirebaseAnalytics
+
     @Suppress("PropertyName")
     protected open val SHARED_DATA = "sharedData"
 
@@ -46,6 +51,9 @@ abstract class BaseActivity : AppCompatActivity(), Navigator, OnSharedPreference
     override fun onCreate(savedInstanceState: Bundle?) {
         Timber.d("onCreate called")
         super.onCreate(savedInstanceState)
+
+        // Obtain the FirebaseAnalytics instance.
+        analytics = Firebase.analytics
 
         sharedData = SharedDataImpl(savedInstanceState?.getBundle(SHARED_DATA))
         mViewModel.sharedPrefs.registerOnSharedPreferenceChangeListener(this)
