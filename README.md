@@ -15,4 +15,4 @@ Any Android 8.0+ device where Google service are available
 ## For developers
 Check out [build.gradle file](./app/build.gradle)
 ## License 
-Domain Search is [MIT licensed](./LICENSE).
+Advanced number generator is [MIT licensed](./LICENSE).
