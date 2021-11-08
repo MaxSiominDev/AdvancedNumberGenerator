@@ -13,8 +13,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 import dev.maxsiomin.advancednumbergenerator.R
+import dev.maxsiomin.advancednumbergenerator.activities.main.DialogBuilder
 import dev.maxsiomin.advancednumbergenerator.activities.main.MainActivity
-import dev.maxsiomin.advancednumbergenerator.base.DialogBuilder
 import dev.maxsiomin.advancednumbergenerator.fragments.contract.Navigator
 import dev.maxsiomin.advancednumbergenerator.fragments.login.LoginFragment
 import dev.maxsiomin.advancednumbergenerator.util.SharedData
@@ -22,8 +22,7 @@ import dev.maxsiomin.advancednumbergenerator.util.SharedDataImpl
 import javax.inject.Inject
 
 /**
- * The only activity in application that doesn't extend BaseActivity
- * Contains 3 Fragments: LoginFragment, SignupFragment, ResetPasswordFragment
+ * Uses 3 Fragments: LoginFragment, SignupFragment, ResetPasswordFragment
  */
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity(), Navigator {

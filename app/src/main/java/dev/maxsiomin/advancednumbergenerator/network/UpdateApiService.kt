@@ -6,7 +6,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
 
 @Suppress("SpellCheckingInspection")
-private const val BASE_URL = "https://maxsiomin.dev/api/apps/domain_search/"
+private const val BASE_URL = "https://maxsiomin.dev/api/apps/advanced_number_generator/"
 
 private val retrofit: Retrofit = Retrofit.Builder()
     .addConverterFactory(ScalarsConverterFactory.create())

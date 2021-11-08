@@ -19,7 +19,7 @@ import dev.maxsiomin.advancednumbergenerator.util.SharedDataKeys.MIN_NUMBER
 import dev.maxsiomin.advancednumbergenerator.util.*
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment(R.layout.fragment_home, true) {
+class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     override var _binding: ViewDataBinding? = null
     // This property is only valid between onCreateView and onDestroyView

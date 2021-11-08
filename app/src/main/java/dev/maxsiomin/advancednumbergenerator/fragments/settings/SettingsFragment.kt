@@ -15,23 +15,22 @@ import androidx.preference.Preference
 import androidx.preference.Preference.OnPreferenceClickListener
 import androidx.preference.PreferenceFragmentCompat
 import dev.maxsiomin.advancednumbergenerator.BuildConfig
-import dev.maxsiomin.advancednumbergenerator.base.BaseActivity
 import dev.maxsiomin.advancednumbergenerator.base.BaseViewModel
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import dev.maxsiomin.advancednumbergenerator.R
-import dev.maxsiomin.advancednumbergenerator.base.APK_LOCATION
+import dev.maxsiomin.advancednumbergenerator.activities.main.APK_LOCATION
+import dev.maxsiomin.advancednumbergenerator.activities.main.MainActivity
+import dev.maxsiomin.advancednumbergenerator.activities.main.openInBrowser
 import javax.inject.Inject
 
 private const val DEVELOPER_EMAIL = "max@maxsiomin.dev"
 private const val DEVELOPER_WEBSITE = "https://maxsiomin.dev/"
 
 @AndroidEntryPoint
-class SettingsFragment() : PreferenceFragmentCompat() {
+class SettingsFragment : PreferenceFragmentCompat() {
 
     private val mViewModel by viewModels<BaseViewModel>()
-
-    private val baseActivity get() = requireActivity() as BaseActivity
 
     @Inject
     lateinit var auth: FirebaseAuth
@@ -65,7 +64,7 @@ class SettingsFragment() : PreferenceFragmentCompat() {
 
         findPreference(R.string.key_log_out).setOnClickListener {
             auth.signOut()
-            baseActivity.onLogout()
+            (activity as MainActivity).onLogout()
         }
 
         findPreference(R.string.key_help_and_feedback).setOnClickListener { sendEmail() }
@@ -112,7 +111,7 @@ class SettingsFragment() : PreferenceFragmentCompat() {
      * My website
      */
     private fun moreApps() {
-        baseActivity.openInBrowser(DEVELOPER_WEBSITE)
+        requireActivity().openInBrowser(DEVELOPER_WEBSITE)
     }
 
     private fun Preference.setOnClickListener(onClick: () -> Unit) {

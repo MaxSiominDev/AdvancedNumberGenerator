@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 /**
  * All classes that has super class [Fragment] by default must extend this class instead of [Fragment]
  */
-abstract class BaseFragment(@LayoutRes resId: Int, val usedByBaseActivity: Boolean) : Fragment(resId) {
+abstract class BaseFragment(@LayoutRes resId: Int) : Fragment(resId) {
 
     protected open val mViewModel by viewModels<BaseViewModel>()
 

@@ -5,7 +5,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.maxsiomin.advancednumbergenerator.BuildConfig
 import dev.maxsiomin.advancednumbergenerator.R
 import dev.maxsiomin.advancednumbergenerator.base.BaseViewModel
-import dev.maxsiomin.advancednumbergenerator.di.AppModule.provideUiActions
 import dev.maxsiomin.advancednumbergenerator.repository.updaterepository.Success
 import dev.maxsiomin.advancednumbergenerator.repository.updaterepository.UpdateRepository
 import dev.maxsiomin.advancednumbergenerator.util.UiActions

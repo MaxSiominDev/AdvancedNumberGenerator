@@ -2,18 +2,21 @@ package dev.maxsiomin.advancednumbergenerator.util
 
 import android.os.Bundle
 import dev.maxsiomin.advancednumbergenerator.activities.login.LoginActivity
-import dev.maxsiomin.advancednumbergenerator.base.BaseActivity
+import dev.maxsiomin.advancednumbergenerator.activities.main.MainActivity
 import dev.maxsiomin.advancednumbergenerator.base.BaseFragment
+
+const val SHARED_DATA = "sharedData"
 
 typealias LongSharedDataKey = SharedDataKey<Long>
 typealias StringSharedDataKey = SharedDataKey<String>
 
 val BaseFragment.sharedData: SharedData
     get() {
-        return if (usedByBaseActivity)
-            (requireActivity() as BaseActivity).sharedData
-        else
-            (requireActivity() as LoginActivity).sharedData
+        return when (val activity = requireActivity()) {
+            is MainActivity -> activity.sharedData
+            is LoginActivity -> activity.sharedData
+            else -> throw IllegalStateException()
+        }
     }
 
 interface SharedData {
