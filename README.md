@@ -12,7 +12,5 @@ git clone https://github.com/MaxSiominDev/AdvancedNumberGenerator.git
 
 Any Android 8.0+ device where Google Services are available
 
-## For developers
-Check out [build.gradle file](./app/build.gradle)
 ## License 
 Advanced number generator is [MIT licensed](./LICENSE).
