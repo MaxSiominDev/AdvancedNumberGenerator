@@ -30,11 +30,6 @@ interface UiActions {
 
 class UiActionsImpl(private val context: Context) : UiActions {
 
-    /**
-     * Contains strings that were already loaded from resources
-     */
-    private val strings = mutableMapOf<@StringRes Int, String>()
-
     private val inputMethodManager: InputMethodManager
         get() = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
@@ -44,17 +39,11 @@ class UiActionsImpl(private val context: Context) : UiActions {
     override fun toast(message: String, length: Int) =
         Toast.makeText(context, message, length).show()
 
-    /**
-     * If string has no arguments and were already loaded returns it from [strings]
-     */
     override fun getString(resId: Int, vararg args: Any): String {
-        if (args.isNotEmpty())
-            return context.getString(resId, *args)
-
-        if (strings[resId] == null)
-            strings[resId] = context.getString(resId)
-
-        return strings[resId]!!
+        return if (args.isNotEmpty())
+            context.getString(resId, *args)
+        else
+            context.getString(resId)
     }
 
     override fun hideKeyboard(windowToken: IBinder) {

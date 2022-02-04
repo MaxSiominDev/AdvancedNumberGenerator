@@ -39,7 +39,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         (requireActivity() as AppCompatActivity).supportActionBar!!.title = getString(R.string.settings)
         return super.onCreateView(inflater, container, savedInstanceState)
     }
