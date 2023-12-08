@@ -29,8 +29,13 @@ fun Editable.toLong(): Long = this.toString().toLong()
 /**
  * It works like [kotlin.random.Random] but I need this method for usage of [java.security.SecureRandom]
  */
-fun java.util.Random.nextLong(min: Long, max: Long): Long =
-    longs(1, min, max + 1).reduce(0) { _, b -> b }
+fun java.util.Random.nextLong(min: Long, max: Long): Long {
+    val longs = longs(1, min, max + 1)
+    return longs.reduce(0) { _, b ->
+        b
+    }
+}
+
 
 fun SharedPreferences.getBoolean(@StringRes resId: Int, defValue: Boolean, context: Context): Boolean =
     getBoolean(context.getString(resId), defValue)
